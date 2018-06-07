@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Target
+ * EndSnapHelperDelegator
  *
  * @author takusemba
  * @since 30/07/2017
@@ -18,7 +18,7 @@ class EndSnapHelperDelegator extends SnapHelperDelegator {
      * @param snapCount the number of items to scroll over
      */
     EndSnapHelperDelegator(int snapCount) {
-        super(snapCount, false);
+        super(snapCount);
     }
 
     @Override
@@ -42,6 +42,8 @@ class EndSnapHelperDelegator extends SnapHelperDelegator {
 
     @Override
     boolean shouldSkipTarget(View targetView, RecyclerView.LayoutManager layoutManager, OrientationHelper helper, boolean forwardDirection) {
-        return getDistance(layoutManager, targetView, helper) < 0;
+        return forwardDirection
+                ? getDistance(layoutManager, targetView, helper) < 0
+                : getDistance(layoutManager, targetView, helper) > 0;
     }
 }

@@ -7,13 +7,13 @@
 ```groovy
 
 dependencies {
-    compile 'com.github.takusemba:multisnaprecyclerview:1.1.0'
+    implementation 'com.github.takusemba:multisnaprecyclerview:1.3.3'
 }
 
 ```
 <br/>
 
-<img src="https://github.com/TakuSemba/MultiSnapRecyclerView/blob/master/arts/gravity.gif" align="right" width="300">
+<img src="https://github.com/TakuSemba/MultiSnapRecyclerView/blob/master/arts/gravity.gif" align="right" width="30%">
 
 ## Features
 ![Platform](http://img.shields.io/badge/platform-android-green.svg?style=flat)
@@ -40,7 +40,7 @@ What this does are clean, neat, and powerful.
 <br/>
 <br/>
 
-<img src="https://github.com/TakuSemba/MultiSnapRecyclerView/blob/master/arts/snap_count.gif" align="left" width="300">
+<img src="https://github.com/TakuSemba/MultiSnapRecyclerView/blob/master/arts/snap_count.gif" align="left" width="30%">
 
 ## Usage
 Use MultiSnapRecyclerView in your xml file.
@@ -50,6 +50,7 @@ Use MultiSnapRecyclerView in your xml file.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:msrv_gravity="start" or center, end
+        app:msrv_ms_per_inch="@dimen/normal_speed" // speed of scrolling through.
         app:msrv_snap_count="2" /> items to scroll over
 
 ```
@@ -76,13 +77,13 @@ Clone this repo and check out the [app](https://github.com/TakuSemba/MultiSnapRe
 
 ## Change Log
 
+### Version: 1.2.0
+
+  * control of speed when scrolling through
+
 ### Version: 1.1.0
 
-  * reuturn snapped position in OnSnapListener
-  
-### Version: 1.0.0
-
-  * Initial Build
+  * return snapped position in OnSnapListener
 
 
 ## Author

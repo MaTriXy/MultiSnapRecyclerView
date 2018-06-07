@@ -6,7 +6,7 @@ import android.view.View;
 
 
 /**
- * Target
+ * CenterSnapHelperDelegator
  *
  * @author takusemba
  * @since 30/07/2017
@@ -19,7 +19,7 @@ class CenterSnapHelperDelegator extends SnapHelperDelegator {
      * @param snapCount the number of items to scroll over
      */
     CenterSnapHelperDelegator(int snapCount) {
-        super(snapCount, false);
+        super(snapCount);
     }
 
     @Override

@@ -6,7 +6,7 @@ import android.view.View;
 
 
 /**
- * Target
+ * StartSnapHelperDelegator
  *
  * @author takusemba
  * @since 30/07/2017
@@ -19,7 +19,7 @@ class StartSnapHelperDelegator extends SnapHelperDelegator {
      * @param snapCount the number of items to scroll over
      */
     StartSnapHelperDelegator(int snapCount) {
-        super(snapCount, true);
+        super(snapCount);
     }
 
     @Override
@@ -41,6 +41,8 @@ class StartSnapHelperDelegator extends SnapHelperDelegator {
 
     @Override
     boolean shouldSkipTarget(View targetView, RecyclerView.LayoutManager layoutManager, OrientationHelper helper, boolean forwardDirection) {
-        return getDistance(layoutManager, targetView, helper) > 0;
+        return forwardDirection
+                ? getDistance(layoutManager, targetView, helper) < 0
+                : getDistance(layoutManager, targetView, helper) > 0;
     }
 }
