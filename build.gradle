@@ -1,23 +1,55 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-    }
+  ext.configs = [
+      version: "2.0.4",
+      groupId: "com.github.takusemba",
+      artifactId: "multisnaprecyclerview",
+      description: "Android library for multiple snapping of RecyclerView.",
+      siteUrl: "https://github.com/TakuSemba/MultiSnapRecyclerView",
+      gitUrl: "https://github.com/TakuSemba/MultiSnapRecyclerView.git",
+      developerId: "takusemba",
+      developerName: "TakuSemba",
+      developerEmail: "takusemba.ele@gmail.com",
+      licenseName: "The Apache Software License, Version 2.0",
+      licenseUrl: "http://www.apache.org/licenses/LICENSE-2.0.txt",
+
+      compileSdkVersion: 30,
+      minSdkVersion: 14,
+      targetSdkVersion: 30,
+  ]
+  ext.versions = [
+      kotlin: '1.4.31',
+  ]
+  ext.deps = [
+      androidPlugin: "com.android.tools.build:gradle:4.0.1",
+      kotlin: [
+          plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+          stdlib: "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+      ],
+      androidx: [
+          appcompat: "androidx.appcompat:appcompat:1.2.0",
+          recyclerview: "androidx.recyclerview:recyclerview:1.1.0",
+          cardview: "androidx.cardview:cardview:1.0.0",
+      ],
+  ]
+  repositories {
+    jcenter()
+    google()
+  }
+  dependencies {
+    classpath deps.androidPlugin
+    classpath deps.kotlin.plugin
+  }
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        maven { url 'https://maven.google.com' }
-    }
+  repositories {
+    jcenter()
+    google()
+  }
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+  delete rootProject.buildDir
 }
